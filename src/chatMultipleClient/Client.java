@@ -141,8 +141,8 @@ public class Client extends javax.swing.JFrame implements Runnable {
                             in.readFully(fileData1);
                             File file1 = null;
 
-                            String name3 = in.readUTF();
-                            txtArea.append("\n[" + name3 + "] sent a file " + fileName1);
+                            String pm = in.readUTF();
+                            txtArea.append(pm + fileName1);
                             // Chỉ hỏi mở file nếu client không phải là người gửi
                             if (!isSender) {
                                 // Lưu file vào hệ thống

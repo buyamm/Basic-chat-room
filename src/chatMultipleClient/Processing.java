@@ -84,7 +84,7 @@ public class Processing extends Thread {
                             // Tạo một mảng byte để lưu dữ liệu tệp
                             byte[] fileData1 = new byte[(int) fileSize1];
                             chatter.getIn().readFully(fileData1);
-                            int j2 = chatter.getIn().readInt();
+                            int j2 = chatter.getIn().readInt(); 
                             String name3 = chatter.getIn().readUTF();
 
                             for (Chatter c : Server.list) {
@@ -92,8 +92,7 @@ public class Processing extends Thread {
                                 c.getOut().writeUTF(fileName1);
                                 c.getOut().writeLong(fileData1.length);
                                 c.getOut().write(fileData1);
-                                c.getOut().writeInt(j2);
-                                c.getOut().writeUTF(name3);
+                                Server.list.get(j2).getOut().writeUTF("\n[PM from " + name3 + "] sent a file ");
                             }
 
                             break;
